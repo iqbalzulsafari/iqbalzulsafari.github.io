@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iqbal Zulsafari — Analyst & Problem-Solver</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root,[data-theme="light"]{
+--bg:#FAF9F7;--bg2:#FFFFFF;--bg3:#F2F0EC;--bg4:#EBE8E3;
+--text:#1A1A1A;--text2:#555249;--text3:#8A8780;--text4:#B5B2AC;
+--accent:#3D5A80;--accent2:#98C1D9;--accent-light:#EDF2F7;
+--border:#E4E1DB;--border2:#D4D0C8;
+--card:#FFFFFF;--card-hover:#FDFCFB;
+--tag1-bg:#FFF8F0;--tag1-text:#B8860B;--tag1-border:#F0DEB4;
+--tag2-bg:#F0F7F4;--tag2-text:#2D6A4F;--tag2-border:#B7DFC9;
+--tag3-bg:#F3F0FA;--tag3-text:#6C4AB6;--tag3-border:#D4C5F0;
+--nav-bg:rgba(250,249,247,0.85);
+--shadow-sm:0 1px 2px rgba(26,26,26,0.04);
+--shadow:0 2px 8px rgba(26,26,26,0.06);
+--shadow-lg:0 8px 30px rgba(26,26,26,0.08);
+--hero-gradient:linear-gradient(160deg,#FAF9F7 0%,#F2F0EC 50%,#EDF2F7 100%)
+}
+[data-theme="dark"]{
+--bg:#141414;--bg2:#1C1C1C;--bg3:#242424;--bg4:#2C2C2C;
+--text:#E8E6E3;--text2:#A8A5A0;--text3:#706D68;--text4:#4A4845;
+--accent:#98C1D9;--accent2:#3D5A80;--accent-light:#1A2332;
+--border:#2A2A2A;--border2:#363636;
+--card:#1E1E1E;--card-hover:#222222;
+--tag1-bg:#2A2418;--tag1-text:#D4A843;--tag1-border:#3D3422;
+--tag2-bg:#1A2B22;--tag2-text:#6FCF97;--tag2-border:#223D2E;
+--tag3-bg:#231E30;--tag3-text:#B794F4;--tag3-border:#332B47;
+--nav-bg:rgba(20,20,20,0.85);
+--shadow-sm:0 1px 2px rgba(0,0,0,0.2);
+--shadow:0 2px 8px rgba(0,0,0,0.3);
+--shadow-lg:0 8px 30px rgba(0,0,0,0.4);
+--hero-gradient:linear-gradient(160deg,#141414 0%,#1A1A1A 50%,#1A2332 100%)
+}
+
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent);text-decoration:none;transition:all 0.25s ease}
+a:hover{color:var(--text)}
+.serif{font-family:'DM Serif Display',serif}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid transparent;padding:0 clamp(1.5rem,4vw,3rem);height:64px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease}
+nav.scrolled{border-bottom-color:var(--border)}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--text);letter-spacing:-0.01em}
+.nav-right{display:flex;align-items:center;gap:0.25rem}
+.nav-links{display:flex;gap:0}
+.nav-links a{font-size:0.82rem;font-weight:400;color:var(--text3);padding:0.5rem 0.9rem;border-radius:6px;transition:all 0.25s ease;letter-spacing:0.01em}
+.nav-links a:hover{color:var(--text);background:var(--bg3)}
+.theme-toggle{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all 0.25s ease;margin-left:0.5rem}
+.theme-toggle:hover{border-color:var(--border2);background:var(--bg3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border-radius:6px;transition:background 0.2s}
+.hamburger:hover{background:var(--bg3)}
+.hamburger span{display:block;width:18px;height:1.5px;background:var(--text3);transition:0.3s}
+
+section{padding:clamp(4rem,8vw,7rem) clamp(1.5rem,4vw,3rem)}
+.container{max-width:920px;margin:0 auto}
+.section-label{font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:var(--text3);margin-bottom:1rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:0.75rem;letter-spacing:-0.02em}
+.section-desc{font-size:0.95rem;color:var(--text2);max-width:540px;line-height:1.7}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:64px;background:var(--hero-gradient)}
+.hero-inner{display:grid;grid-template-columns:1fr 300px;gap:clamp(2rem,5vw,5rem);align-items:center}
+.hero-eyebrow{font-size:0.78rem;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:var(--text3);margin-bottom:1rem}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.5vw,3.6rem);line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-desc{font-size:1rem;color:var(--text2);margin-bottom:2rem;max-width:500px;line-height:1.75}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--text);line-height:1}
+.hero-stat-label{font-size:0.75rem;color:var(--text3);margin-top:0.35rem;letter-spacing:0.02em}
+.hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.65rem 1.35rem;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all 0.25s ease;cursor:pointer;border:none;font-family:inherit;letter-spacing:0.01em}
+.btn-dark{background:var(--text);color:var(--bg);border:1px solid var(--text)}
+.btn-dark:hover{background:transparent;color:var(--text)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--border2);color:var(--text);background:var(--bg3)}
+.hero-photo-wrap{position:relative}
+.hero-photo-frame{width:260px;height:340px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:var(--bg3);position:relative}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.55);transform-origin:center 18%}
+.hero-float-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.65rem 0.9rem;box-shadow:var(--shadow);font-size:0.75rem;white-space:nowrap;animation:float 4s ease-in-out infinite}
+.hero-float-card.c1{bottom:-12px;left:-30px;animation-delay:0s}
+.hero-float-card.c2{top:20px;right:-35px;animation-delay:1.5s}
+.hero-float-card b{color:var(--text);font-weight:600}
+.hero-float-card span{color:var(--text3)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.about-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-content{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem}
+.about-card{padding:1.5rem;border-radius:12px;border:1px solid var(--border);background:var(--bg);transition:all 0.3s ease;position:relative;overflow:hidden}
+.about-card:hover{border-color:var(--border2);box-shadow:var(--shadow-sm)}
+.about-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);opacity:0;transition:opacity 0.3s ease}
+.about-card:hover::before{opacity:1}
+.about-card h3{font-size:0.9rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
+.about-card p{font-size:0.85rem;color:var(--text2);line-height:1.65}
+
+.edu-section{background:var(--bg)}
+.edu-grid{margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem;max-width:680px}
+.edu-card{display:flex;justify-content:space-between;align-items:flex-start;padding:1.5rem;border-radius:12px;border:1px solid var(--border);background:var(--bg2);transition:all 0.3s ease;flex-wrap:wrap;gap:1rem}
+.edu-card:hover{box-shadow:var(--shadow-sm);border-color:var(--border2)}
+.edu-card h3{font-size:0.95rem;font-weight:600;margin-bottom:0.2rem}
+.edu-card .school{font-size:0.85rem;color:var(--text2);margin-bottom:0.6rem}
+.edu-badges{display:flex;gap:0.4rem;flex-wrap:wrap}
+.badge{font-size:0.7rem;font-weight:500;padding:0.25rem 0.65rem;border-radius:20px;border:1px solid}
+.badge-accent{background:var(--accent-light);color:var(--accent);border-color:transparent}
+.badge-gold{background:var(--tag1-bg);color:var(--tag1-text);border-color:var(--tag1-border)}
+.edu-date{font-size:0.8rem;color:var(--text3);white-space:nowrap;flex-shrink:0}
+
+.work-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.case-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.5rem}
+.case-card{border-radius:14px;border:1px solid var(--border);background:var(--bg);overflow:hidden;transition:all 0.4s ease}
+.case-card:hover{box-shadow:var(--shadow);border-color:var(--border2)}
+.case-top{padding:2rem 2rem 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.75rem}
+.case-num{font-family:'DM Serif Display',serif;font-size:0.9rem;color:var(--text4);line-height:1}
+.case-tags{display:flex;gap:0.4rem;flex-wrap:wrap}
+.tag{font-size:0.68rem;font-weight:500;padding:0.25rem 0.65rem;border-radius:20px;border:1px solid}
+.tag-banking{background:var(--tag1-bg);color:var(--tag1-text);border-color:var(--tag1-border)}
+.tag-health{background:var(--tag2-bg);color:var(--tag2-text);border-color:var(--tag2-border)}
+.tag-prop{background:var(--tag3-bg);color:var(--tag3-text);border-color:var(--tag3-border)}
+.tag-neutral{background:var(--bg3);color:var(--text3);border-color:var(--border)}
+.case-body{padding:1rem 2rem 2rem}
+.case-body h3{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.25rem;letter-spacing:-0.01em;line-height:1.3}
+.case-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+.case-block h4{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:0.5rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+.case-block p,.case-block li{font-size:0.84rem;color:var(--text2);line-height:1.65}
+.case-block ul{padding-left:1rem;list-style:none}
+.case-block ul li{position:relative;padding-left:0.5rem;margin-bottom:0.3rem}
+.case-block ul li::before{content:'—';position:absolute;left:-0.9rem;color:var(--text4)}
+.case-tools{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)}
+.case-tools span{font-size:0.7rem;padding:0.2rem 0.55rem;border-radius:4px;background:var(--bg3);color:var(--text3);font-weight:400;letter-spacing:0.02em}
+
+.cert-section{background:var(--bg)}
+.cert-list{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.cert-item{display:flex;gap:0.85rem;align-items:flex-start;padding:1.15rem;border-radius:10px;border:1px solid var(--border);background:var(--bg2);transition:all 0.3s ease}
+.cert-item:hover{border-color:var(--border2);box-shadow:var(--shadow-sm)}
+.cert-dot{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;letter-spacing:0.02em}
+.cert-dot.ms{background:var(--accent-light);color:var(--accent)}
+.cert-dot.nv{background:var(--tag2-bg);color:var(--tag2-text)}
+.cert-dot.uh{background:var(--tag1-bg);color:var(--tag1-text)}
+.cert-dot.cisco{background:var(--tag3-bg);color:var(--tag3-text)}
+.cert-text h4{font-size:0.84rem;font-weight:600;margin-bottom:0.1rem}
+.cert-text p{font-size:0.76rem;color:var(--text3)}
+.cert-text a{font-size:0.76rem;color:var(--accent);display:inline-block;margin-top:0.15rem}
+
+.resume-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+.resume-box{max-width:520px;margin:2.5rem auto 0;padding:2.5rem;border-radius:14px;border:1px solid var(--border);background:var(--bg)}
+.resume-box p{font-size:0.88rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.65}
+.resume-btns{display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap}
+
+.contact-section{background:var(--bg)}
+.contact-inner{text-align:center}
+.contact-methods{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap}
+.contact-method h4{font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:0.3rem}
+.contact-method a,.contact-method p{font-size:0.9rem;color:var(--text2)}
+.contact-method a:hover{color:var(--accent)}
+.social-row{display:flex;justify-content:center;gap:0.6rem;margin-top:2rem}
+.social-pill{display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.1rem;border-radius:8px;font-size:0.82rem;font-weight:400;border:1px solid var(--border);color:var(--text2);transition:all 0.25s ease;background:var(--bg2)}
+.social-pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.social-pill svg{width:15px;height:15px}
+
+footer{text-align:center;padding:2.5rem;font-size:0.75rem;color:var(--text4);border-top:1px solid var(--border);letter-spacing:0.02em}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-inner>div:first-child{order:2}.hero-inner>div:last-child{order:1;display:flex;justify-content:center}
+  .hero-photo-frame{width:180px;height:220px}
+  .hero-float-card{display:none}
+  .hero-stats{justify-content:center}
+  .hero-actions{justify-content:center}
+  .hero h1{font-size:2rem}
+  .about-content,.cert-list{grid-template-columns:1fr}
+  .case-grid{grid-template-columns:1fr}
+  .case-top,.case-body{padding-left:1.5rem;padding-right:1.5rem}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(16px);flex-direction:column;padding:1rem 1.5rem;gap:0;border-bottom:1px solid var(--border)}
+  .nav-links.active{display:flex}
+  .hamburger{display:flex}
+  .contact-methods{flex-direction:column;align-items:center;gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#hero" class="nav-logo" style="text-decoration:none">Iqbal Zulsafari</a>
+  <div class="nav-right">
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#work">Work</a>
+      <a href="#certifications">Credentials</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">&#9788;</span></button>
+    <div class="hamburger" id="menuToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+<div class="container">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Data Scientist &middot; AI Engineer &middot; Builder & Problem Solver</p>
+      <h1>I turn complex data into <em>clear decisions</em></h1>
+      <p class="hero-desc">Computer Science (AI) graduate from Universiti Malaya. Currently at Kyndryl Malaysia, delivering data-driven solutions for banking and healthcare clients — translating ambiguity into actionable insight.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num" data-count="3">0</div>
+          <div class="hero-stat-label">Client engagements</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="5">0</div>
+          <div class="hero-stat-label">Certifications</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-dark">See my work &#8595;</a>
+        <a href="https://www.linkedin.com/in/iqbalzulsafari/" target="_blank" class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/iqbalzulsafari" target="_blank" class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="./assets/photo.jpg" alt="Iqbal Zulsafari"> 
+      </div>
+      <div class="hero-float-card c1"><b>AZ-900</b> <span>&middot; Azure Certified</span></div>
+      <div class="hero-float-card c2"><b>UM</b> <span>&middot; CGPA 3.50</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="about-section" id="about">
+<div class="container">
+  <div class="reveal">
+    <p class="section-label">About</p>
+    <h2 class="section-title">What I bring to the table</h2>
+    <p class="section-desc">I sit at the intersection of technical depth and business understanding — comfortable in a data pipeline and equally at home in a client boardroom.</p>
+  </div>
+  <div class="about-content reveal">
+    <div class="about-card">
+      <h3>Structured problem-solving</h3>
+      <p>Trained in AI and quantitative methods. I break ambiguous challenges into testable hypotheses and work systematically toward recommendations that hold up under scrutiny.</p>
+    </div>
+    <div class="about-card">
+      <h3>Client and stakeholder engagement</h3>
+      <p>Experienced in requirements gathering, feasibility analysis, and presenting complex findings to senior decision-makers who need clarity, not jargon.</p>
+    </div>
+    <div class="about-card">
+      <h3>Data-driven delivery</h3>
+      <p>Built automated validation pipelines, reconciliation frameworks, and evidence retrieval systems that directly informed executive go/no-go decisions.</p>
+    </div>
+    <div class="about-card">
+      <h3>Technical breadth</h3>
+      <p>Python, SQL, Azure, GCP, FastAPI, ML frameworks. I prototype fast and communicate what I've built even faster. Two Azure certifications and counting.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="edu-section" id="education">
+<div class="container">
+  <div class="reveal">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic foundation</h2>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div>
+        <h3>Bachelor of Computer Science (Artificial Intelligence)</h3>
+        <p class="school">Universiti Malaya, Kuala Lumpur</p>
+        <div class="edu-badges">
+          <span class="badge badge-accent">CGPA 3.50</span>
+          <span class="badge badge-gold">Dean's List — Sem 6 & 7</span>
+        </div>
+      </div>
+      <span class="edu-date">2021 – 2025</span>
+    </div>
+    <div class="edu-card">
+      <div>
+        <h3>Foundation in Physical Sciences</h3>
+        <p class="school">Centre for Foundation in Science, Universiti Malaya</p>
+        <div class="edu-badges">
+          <span class="badge badge-accent">CGPA 3.63</span>
+        </div>
+      </div>
+      <span class="edu-date">2020 – 2021</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="work-section" id="work">
+<div class="container">
+  <div class="reveal">
+    <p class="section-label">Selected work</p>
+    <h2 class="section-title">Engagements that shaped my thinking</h2>
+    <p class="section-desc">Each framed as the consulting case it was — situation, approach, and what changed because of the work.</p>
+  </div>
+  <div class="case-list">
+
+    <div class="case-card reveal">
+      <div class="case-top">
+        <span class="case-num">01</span>
+        <div class="case-tags">
+          <span class="tag tag-banking">Banking & Financial Services</span>
+          <span class="tag tag-neutral">Kyndryl &middot; 2025</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Automating loan application review with AI</h3>
+        <div class="case-grid">
+          <div class="case-block">
+            <h4>Situation</h4>
+            <p>A local Malaysian bank's auto-financing loan applications were submitted by partner officers via email with attached documents (NRIC, payslips, bank statements). Bank officers had to manually review each email, open every attachment, and key customer details into the loan origination system — a slow, error-prone process.</p>
+          </div>
+          <div class="case-block">
+            <h4>Approach</h4>
+            <ul>
+              <li>Participated in client requirement gathering to scope the AI email processing solution</li>
+              <li>Assisted in designing the Azure architecture (Document Intelligence, Logic Apps, Blob Storage, Functions)</li>
+              <li>Contributed to building document classification, OCR/NLP data extraction, and a cross-validation engine</li>
+              <li>Built audit trail reporting with extracted fields, mismatches, and confidence scores</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h4>Impact</h4>
+            <p>Delivered a working PoC that automates document classification, data extraction, and cross-validation of customer details — enabling loan officers to focus only on exception handling. Designed to reduce processing time, manual errors, and improve approval consistency.</p>
+          </div>
+        </div>
+        <div class="case-tools">
+          <span>Azure Document Intelligence</span><span>Azure Logic Apps</span><span>Azure Functions</span><span>Python</span><span>OCR/NLP</span><span>Agile</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card reveal">
+      <div class="case-top">
+        <span class="case-num">02</span>
+        <div class="case-tags">
+          <span class="tag tag-health">Healthcare & Life Sciences</span>
+          <span class="tag tag-neutral">Kyndryl &middot; 2025</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Making clinical variant reports consistent and traceable</h3>
+        <div class="case-grid">
+          <div class="case-block">
+            <h4>Situation</h4>
+            <p>A healthcare client's manual process for classifying genomic variants was slow, inconsistent, and difficult to audit — creating risk for clinical governance teams reviewing hundreds of reports.</p>
+          </div>
+          <div class="case-block">
+            <h4>Approach</h4>
+            <ul>
+              <li>Designed an LLM-assisted workflow using RAG to classify variants against live evidence</li>
+              <li>Built batch pipelines generating audit-ready reports across multiple cases</li>
+              <li>Created reconciliation tools documenting discrepancies with legacy outputs</li>
+              <li>Translated complex outputs into summaries non-technical reviewers could act on</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h4>Impact</h4>
+            <p>Improved classification consistency while cutting manual review time. Established a scalable, auditable foundation the client could extend to future report types.</p>
+          </div>
+        </div>
+        <div class="case-tools">
+          <span>Python</span><span>GCP / BigQuery</span><span>RAG</span><span>FastAPI</span><span>NLP</span><span>Batch processing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card reveal">
+      <div class="case-top">
+        <span class="case-num">03</span>
+        <div class="case-tags">
+          <span class="tag tag-prop">Property Technology</span>
+          <span class="tag tag-neutral">UM × SkyWorld &middot; 2024–25</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Turning customer chatter into structured business intelligence</h3>
+        <div class="case-grid">
+          <div class="case-block">
+            <h4>Situation</h4>
+            <p>SkyWorld, a leading Malaysian developer, needed a scalable way to handle multilingual customer queries and extract structured sentiment data to inform strategy. A university-industry collaboration.</p>
+          </div>
+          <div class="case-block">
+            <h4>Approach</h4>
+            <ul>
+              <li>Ran stakeholder analysis to define chatbot scope and sentiment framework</li>
+              <li>Engineered hierarchical sentiment models aligned with business classification tiers</li>
+              <li>Designed modular FastAPI + MultiLLM architecture for multilingual support</li>
+              <li>Trained models with Hugging Face pipelines, meeting accuracy KPIs</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h4>Impact</h4>
+            <p>Delivered a working multilingual prototype with integrated sentiment analytics. Modular architecture ensured the client could maintain and extend it independently after handover.</p>
+          </div>
+        </div>
+        <div class="case-tools">
+          <span>Python</span><span>FastAPI</span><span>mBERT</span><span>SeaLLM</span><span>Hugging Face</span><span>Streamlit</span><span>MySQL</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<section class="cert-section" id="certifications">
+<div class="container">
+  <div class="reveal">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certifications earned</h2>
+  </div>
+  <div class="cert-list reveal">
+    <div class="cert-item">
+      <div class="cert-dot ms">AZ</div>
+      <div class="cert-text">
+        <h4>Azure Fundamentals (AZ-900)</h4>
+        <p>Microsoft &middot; Jul 2025</p>
+        <a href="https://learn.microsoft.com/api/credentials/share/en-us/MuhammadIqbalBinZulsafari5419/74FE80A3934E51DA?sharingId" target="_blank">Verify &#8599;</a>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-dot ms">AI</div>
+      <div class="cert-text">
+        <h4>Azure AI Fundamentals (AI-900)</h4>
+        <p>Microsoft &middot; Jul 2025</p>
+        <a href="https://learn.microsoft.com/api/credentials/share/en-us/MuhammadIqbalBinZulsafari5419/695A0B8051BC11F6?sharingId" target="_blank">Verify &#8599;</a>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-dot nv">NV</div>
+      <div class="cert-text">
+        <h4>AI for Anomaly Detection</h4>
+        <p>NVIDIA &middot; Dec 2024</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-dot uh">ET</div>
+      <div class="cert-text">
+        <h4>Ethics of AI (2 ECTS)</h4>
+        <p>University of Helsinki &middot; Dec 2024</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-dot cisco">CC</div>
+      <div class="cert-text">
+        <h4>CCNAv7: Introduction to Networks</h4>
+        <p>Cisco Networking Academy &middot; Jun 2022</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="resume-section" id="resume">
+<div class="container">
+  <div class="reveal">
+    <p class="section-label">Resume</p>
+    <h2 class="section-title">Get the full picture</h2>
+  </div>
+  <div class="resume-box reveal">
+    <p>Two versions — one framed for consulting and business analyst roles, one for data science and technical positions. Same person, different lens.</p>
+    <div class="resume-btns">
+      <a href="./assets/Iqbal_Resume_Consulting.pdf" class="btn btn-dark" download>&#8595; Consulting version</a>
+      <a href="./assets/Iqbal_Resume_DataScience.pdf" class="btn btn-ghost" download>&#8595; Data science version</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="contact-section" id="contact">
+<div class="container contact-inner">
+  <div class="reveal">
+    <p class="section-label">Say hello</p>
+    <h2 class="section-title">Let's talk</h2>
+    <p class="section-desc" style="margin:0 auto">Open to consulting, data science, and technology advisory opportunities. Based in Kuala Lumpur.</p>
+  </div>
+  <div class="contact-methods reveal">
+    <div class="contact-method">
+      <h4>Email</h4>
+      <a href="mailto:iqbalzulsafari02@gmail.com">iqbalzulsafari02@gmail.com</a>
+    </div>
+    <div class="contact-method">
+      <h4>Phone</h4>
+      <p>+60 18-256 5963</p>
+    </div>
+    <div class="contact-method">
+      <h4>Location</h4>
+      <p>Kuala Lumpur, Malaysia</p>
+    </div>
+  </div>
+  <div class="social-row reveal">
+    <a href="https://www.linkedin.com/in/iqbalzulsafari/" target="_blank" class="social-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/iqbalzulsafari" target="_blank" class="social-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="mailto:iqbalzulsafari02@gmail.com" class="social-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Muhammad Iqbal Bin Zulsafari &middot; iqbalzulsafari.github.io</p>
+</footer>
+
+<script>
+const html=document.documentElement;
+const toggle=document.getElementById('themeToggle');
+const icon=document.getElementById('themeIcon');
+function setTheme(t){
+  html.setAttribute('data-theme',t);
+  icon.innerHTML=t==='dark'?'&#9790;':'&#9788;';
+  try{localStorage.setItem('theme',t)}catch(e){}
+}
+try{const s=localStorage.getItem('theme');if(s)setTheme(s);
+else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark')}catch(e){}
+toggle.addEventListener('click',()=>{setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark')});
+
+document.getElementById('menuToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('active')});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){e.preventDefault();
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){t.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('active')}
+  })
+});
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const counters=document.querySelectorAll('[data-count]');
+let counted=false;
+function animateCounters(){
+  if(counted)return;
+  counters.forEach(c=>{
+    const target=parseInt(c.dataset.count);
+    const suffix=c.dataset.suffix||'';
+    let current=0;
+    const step=Math.max(1,Math.floor(target/40));
+    const timer=setInterval(()=>{
+      current+=step;
+      if(current>=target){current=target;clearInterval(timer)}
+      c.textContent=current+(target>=100?'+':'')+suffix;
+    },35)
+  });
+  counted=true;
+}
+const statsObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)animateCounters()})
+},{threshold:0.5});
+const statsEl=document.querySelector('.hero-stats');
+if(statsEl)statsObserver.observe(statsEl);
+</script>
+</body>
+</html>
